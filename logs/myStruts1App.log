@@ -1,0 +1,15 @@
+2019-12-30 22:56:57 DEBUG DebugLogger:19 - This is debug log - DEBUG
+2019-12-30 22:56:57 INFO  DebugLogger:20 - This is info log - DEBUG
+2019-12-30 22:56:57 WARN  DebugLogger:21 - This is Warn log - DEBUG
+2019-12-30 22:56:57 ERROR DebugLogger:22 - This is error log - DEBUG
+2019-12-30 22:56:57 FATAL DebugLogger:23 - This is Fatal log - DEBUG
+2019-12-30 22:56:57 WARN  DebugLogger:28 - This is Warn log - WARN
+2019-12-30 22:56:57 ERROR DebugLogger:29 - This is error log - WARN
+2019-12-30 22:56:57 FATAL DebugLogger:30 - This is Fatal log - WARN
+2019-12-30 22:56:57 WARN  LoggerParent:41 - This is Warn log - PARENT
+2019-12-30 22:56:57 ERROR LoggerParent:42 - This is error log - PARENT
+2019-12-30 22:56:57 FATAL LoggerParent:43 - This is Fatal log - PARENT
+2019-12-30 22:56:57 WARN  Child:47 - This is Warn log - CHILD
+2019-12-30 22:56:57 ERROR Child:48 - This is error log - CHILD
+2019-12-30 22:56:57 FATAL Child:49 - This is Fatal log - CHILD
+2019-12-30 22:56:57 INFO  Method:50 - jdklsajdasj
