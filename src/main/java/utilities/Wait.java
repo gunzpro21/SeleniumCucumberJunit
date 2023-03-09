@@ -1,6 +1,6 @@
 package utilities;
 
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -11,11 +11,12 @@ import com.google.common.base.Function;
 import managers.FileReaderManager;
 
 public class Wait {
+	static Duration timeout = Duration.ofSeconds(FileReaderManager.getInstance().getConfigReader().getExplicitlyWait());
 	public static void untilJqueryIsDone(WebDriver driver){
-		untilJqueryIsDone(driver, FileReaderManager.getInstance().getConfigReader().getImplicitlyWait());
+		untilJqueryIsDone(driver, Duration.ofMillis(FileReaderManager.getInstance().getConfigReader().getExplicitlyWait()));
 	}
  
-	public static void untilJqueryIsDone(WebDriver driver, Integer timeoutInSeconds){
+	public static void untilJqueryIsDone(WebDriver driver, Duration timeoutInSeconds){
 		until(driver, (d) ->{
 			Boolean isJqueryCallDone = (Boolean)((JavascriptExecutor) driver).executeScript("return jQuery.active==0");
 			if (!isJqueryCallDone) System.out.println("JQuery call is in Progress");
@@ -24,10 +25,10 @@ public class Wait {
 	}
 	
 	public static void untilPageLoadComplete(WebDriver driver) {
-		untilPageLoadComplete(driver, FileReaderManager.getInstance().getConfigReader().getImplicitlyWait());
+		untilPageLoadComplete(driver, Duration.ofMillis(FileReaderManager.getInstance().getConfigReader().getExplicitlyWait()));
 	}
  
-	public static void untilPageLoadComplete(WebDriver driver, Integer timeoutInSeconds){
+	public static void untilPageLoadComplete(WebDriver driver, Duration timeoutInSeconds){
 		until(driver, (d) ->
 			{
 				Boolean isPageLoaded = (Boolean)((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
@@ -37,13 +38,13 @@ public class Wait {
 	}
 	
 	public static void until(WebDriver driver, Function<WebDriver, Boolean> waitCondition){
-		until(driver, waitCondition, FileReaderManager.getInstance().getConfigReader().getImplicitlyWait());
+			until(driver, waitCondition, timeout);
 	}
  
 	
-	private static void until(WebDriver driver, Function<WebDriver, Boolean> waitCondition, Integer timeoutInSeconds){
+	private static void until(WebDriver driver, Function<WebDriver, Boolean> waitCondition, Duration timeoutInSeconds){
 		WebDriverWait webDriverWait = new WebDriverWait(driver, timeoutInSeconds);
-		webDriverWait.withTimeout(timeoutInSeconds, TimeUnit.SECONDS);
+		webDriverWait.withTimeout(timeoutInSeconds);
 		try{
 			webDriverWait.until(waitCondition);
 		}catch (Exception e){

@@ -10,6 +10,7 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.SimpleLayout;
 
 public class TestLog {
+	//how to add log?
 	public static void logLogger() {
 	     BasicConfigurator.configure();
 	     Logger Mylogger = LogManager.getLogger("DebugLogger");

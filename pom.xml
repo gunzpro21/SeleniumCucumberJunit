@@ -1,6 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.kapint</groupId>
@@ -15,17 +13,12 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.18</version>
+				<version>3.0.0-M7</version>
 				<dependencies>
 					<dependency>
 						<groupId>org.apache.maven.surefire</groupId>
 						<artifactId>surefire-junit47</artifactId>
-						<version>2.18</version>
-					</dependency>
-					<dependency>
-						<groupId>org.hibernate</groupId>
-						<artifactId>hibernate-core</artifactId>
-						<version>3.3.2.GA</version>
+						<version>3.0.0-M7</version>
 					</dependency>
 				</dependencies>
 			</plugin>
@@ -33,7 +26,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.7.0</version> <!-- or whatever current version -->
+				<version>3.10.1</version> <!-- or whatever current version -->
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
@@ -44,8 +37,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<cucumber-version>1.2.5</cucumber-version>
-		<selenium-version>3.141.59</selenium-version>
-		<maven-surefire-version>2.19.1</maven-surefire-version>
+		<selenium-version>4.8.0</selenium-version>
 		<browser>default</browser>
 		<ui-language>default</ui-language>
 		<platform>default</platform>
@@ -81,13 +73,9 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.12</version>
+			<version>4.13.2</version>
 		</dependency>
-		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi</artifactId>
-			<version>3.17</version>
-		</dependency>
+
 
 		<dependency>
 			<groupId>log4j</groupId>
@@ -96,22 +84,9 @@
 		</dependency>
 
 		<dependency>
-			<groupId>io.rest-assured</groupId>
-			<artifactId>rest-assured</artifactId>
-			<version>3.1.1</version>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
 			<groupId>com.googlecode.json-simple</groupId>
 			<artifactId>json-simple</artifactId>
 			<version>1.1.1</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			<version>2.9.6</version>
 		</dependency>
 		<dependency>
 			<groupId>info.cukes</groupId>
@@ -120,9 +95,14 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>io.github.bonigarcia</groupId>
-			<artifactId>webdrivermanager</artifactId>
-			<version>3.7.1</version>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.12.0</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.11.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.aventstack</groupId>
@@ -137,13 +117,13 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>1.18.20</version>
+			<version>1.18.26</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.github.javafaker</groupId>
-			<artifactId>javafaker</artifactId>
-			<version>1.0.2</version>
+			<groupId>net.datafaker</groupId>
+			<artifactId>datafaker</artifactId>
+			<version>1.8.0</version>
 		</dependency>
 	</dependencies>
 

@@ -2,6 +2,7 @@ package pageobjects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
 import enums.E_URL_Environment;
 import managers.FileReaderManager;
@@ -15,12 +16,11 @@ import managers.FileReaderManager;
 * @since   2018 Oct 29th
 */
 
-public class HomePage {
-	WebDriver driver;
+public class HomePage extends BasePage{
 	
 	public HomePage(WebDriver driver) {
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
+		super(driver);
+		PageFactory.initElements(new AjaxElementLocatorFactory(driver, pageTimeOut), this);
 	}
 	
 	public void navigateTo_HomePage() {

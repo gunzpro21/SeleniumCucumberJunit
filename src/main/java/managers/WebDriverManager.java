@@ -9,7 +9,6 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 
 import enums.E_Browser;
 import enums.E_EnvironmentType;
-import utilities.Utils;
 /**
 * <h1>some called it as WebDriver Factory or Browser Factory!</h1>
 * The WebDriverManager needs a driver to execute the script. Also i use WebDriverManager, we can automatically download the driver’s binary files (.exe files) for Web Automation. 
@@ -31,7 +30,7 @@ public class WebDriverManager {
 	public WebDriver getDriver() {
 		if(driver == null) 
 			driver = createDriver();
-		Utils.maximizeWindow(driver);
+		driver.manage().window().maximize();
 		return driver;
 	}
 	
@@ -52,23 +51,19 @@ public class WebDriverManager {
 	private WebDriver createLocalDriver() {
         switch (driverType) {	    
         case FIREFOX : 
-        	io.github.bonigarcia.wdm.WebDriverManager.firefoxdriver().setup();
+        	//io.github.bonigarcia.wdm.WebDriverManager.firefoxdriver().setup();
         	 driver = new FirefoxDriver();
 	    	break;
         case CHROME : 
-        	io.github.bonigarcia.wdm.WebDriverManager.chromedriver().setup();
+        	//io.github.bonigarcia.wdm.WebDriverManager.chromedriver().setup();
         	driver = new ChromeDriver();
     		break;
         case IE :
-        	io.github.bonigarcia.wdm.WebDriverManager.iedriver().setup();
+        	//io.github.bonigarcia.wdm.WebDriverManager.iedriver().setup();
              driver = new InternetExplorerDriver();
     		break;
         }
  
-		/*
-		 * if(FileReaderManager.getInstance().getConfigReader().getBrowserWindowSize())
-		 * driver.manage().window().maximize();
-		 */
         driver.manage().timeouts().implicitlyWait(FileReaderManager.getInstance().getConfigReader().getImplicitlyWait(), TimeUnit.SECONDS);
 		return driver;
 	}	

@@ -1,9 +1,8 @@
 package runners;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.junit.Test;
 
@@ -33,6 +32,7 @@ public class FreeMind {
 		return a;
 	}
 
+	
 	@Test
 	public void pub() {
 		int candies[] = new int[] { 2, 3, 5, 1, 3 };

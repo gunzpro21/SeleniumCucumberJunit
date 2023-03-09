@@ -3,7 +3,7 @@ package utilities;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
 import java.util.function.Function;
 
 import org.openqa.selenium.By;
@@ -19,6 +19,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import managers.FileReaderManager;
 
+/**
+* <h1>Utils!</h1>
+* The Utils contains all action which interact these web elements.
+
+* @author  Joe Phan
+* @since   2022 Oct 30th
+*/
 public class Utils {
 	/*
 	 * Waits for theElement To Be visibility
@@ -29,11 +36,11 @@ public class Utils {
 	 * 
 	 * @param timeOutInSeconds Time to wait for element to be visibility
 	 */
-	public static WebElement fluentWaitWebDriver(WebDriver driver, WebElement element1, int timeOutInSeconds,
-			int pollingInSeconds) {
+	public static WebElement fluentWaitWebDriver(WebDriver driver, WebElement element1, Duration timeOutInSeconds,
+			Duration pollingInSeconds) {
 		@SuppressWarnings("deprecation")
-		FluentWait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(timeOutInSeconds, TimeUnit.SECONDS)
-				.pollingEvery(pollingInSeconds, TimeUnit.SECONDS).ignoring(NoSuchElementException.class);
+		FluentWait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(timeOutInSeconds)
+				.pollingEvery(pollingInSeconds).ignoring(NoSuchElementException.class);
 		WebElement element2 = wait.until(new Function<WebDriver, WebElement>() {
 			public WebElement apply(WebDriver arg0) {
 				return element1;
@@ -53,7 +60,7 @@ public class Utils {
 	 * @param timeOutInSeconds Time to wait for element to be visibility
 	 */
 	public static WebElement explicitWaitsElementToBeVisibility(WebDriver driver, WebElement element,
-			int timeOutInSeconds) {
+			Duration timeOutInSeconds) {
 		WebDriverWait wait = new WebDriverWait(driver, timeOutInSeconds);
 		WebElement webElement = wait.until(ExpectedConditions.visibilityOf(element));
 		return webElement;
@@ -69,7 +76,7 @@ public class Utils {
 	 * @param timeOutInSeconds Time to wait for element to be visibility
 	 */
 	public static Boolean explicitWaitsElementToBeInvisibility(WebDriver driver, WebElement element,
-			int timeOutInSeconds) {
+			Duration timeOutInSeconds) {
 		WebDriverWait wait = new WebDriverWait(driver, timeOutInSeconds);
 		Boolean condition = wait.until(ExpectedConditions.invisibilityOf(element));
 		return condition;
@@ -85,7 +92,7 @@ public class Utils {
 	 * @param timeOutInSeconds Time to wait for element to be visibility
 	 */
 	public static Boolean waitTextToBePresentInElement(WebDriver driver, WebElement element,
-			int timeOutInSeconds,String text) {
+			Duration timeOutInSeconds,String text) {
 		WebDriverWait wait = new WebDriverWait(driver, timeOutInSeconds);
 		Boolean condition = wait.until(ExpectedConditions.textToBePresentInElement(element, text));
 		return condition;
@@ -101,7 +108,7 @@ public class Utils {
 	 * @param timeOutInSeconds Time to wait for element to be Clickable
 	 */
 	public static WebElement explicitWaitsElementToBeClickable(WebDriver driver, WebElement element,
-			int timeOutInSeconds) {
+			Duration timeOutInSeconds) {
 		WebDriverWait wait = new WebDriverWait(driver, timeOutInSeconds);
 		WebElement LinkText = wait.until(ExpectedConditions.elementToBeClickable(element));
 		return LinkText;
@@ -116,7 +123,7 @@ public class Utils {
 	 * 
 	 * @param timeOutInSeconds Time to wait for element to be Clickable
 	 */
-	public static void clickElementToBeClickable(WebDriver driver, WebElement element, int timeOutInSeconds) {
+	public static void clickElementToBeClickable(WebDriver driver, WebElement element, Duration timeOutInSeconds) {
 		WebElement ele = explicitWaitsElementToBeClickable(driver, element, timeOutInSeconds);
 		ele.click();
 	}
@@ -127,9 +134,9 @@ public class Utils {
 	 * @param driver current Selenium driver
 	 * @param by     element to see
 	 */
-	public static void sendKeysVisibilitElement(WebDriver driver, WebElement element,
+	public static void sendKeysVisibilityElement(WebDriver driver, WebElement element,
 			CharSequence... keysToSend) {
-		explicitWaitsElementToBeVisibility(driver, element,	FileReaderManager.getInstance().getConfigReader().getExplicitlyWait())
+		explicitWaitsElementToBeVisibility(driver, element,	Duration.ofMillis(FileReaderManager.getInstance().getConfigReader().getExplicitlyWait()) )
 		.sendKeys(keysToSend);
 	}
 	
@@ -140,8 +147,7 @@ public class Utils {
 	 * @param by     element to see
 	 */
 	public static String getTextVisibilitElement(WebDriver driver, WebElement element) {
-		return explicitWaitsElementToBeVisibility(driver, element,
-				FileReaderManager.getInstance().getConfigReader().getExplicitlyWait()).getText();
+		return explicitWaitsElementToBeVisibility(driver, element, Duration.ofMillis(FileReaderManager.getInstance().getConfigReader().getExplicitlyWait())).getText();
 	}
 	
 	/*
@@ -197,7 +203,7 @@ public class Utils {
 	public static WebElement getWebElement(WebDriver driver, By by) {
 
 		try {
-			WebElement element = (new WebDriverWait(driver, 20)).until(ExpectedConditions.presenceOfElementLocated(by));
+			WebElement element = (new WebDriverWait(driver, Duration.ofMillis(20))).until(ExpectedConditions.presenceOfElementLocated(by));
 
 			return element;
 		} catch (Exception e) {
@@ -216,7 +222,7 @@ public class Utils {
 	public static Select getSelectElement(WebDriver driver, By by) {
 
 		try {
-			WebElement element = (new WebDriverWait(driver, 20)).until(ExpectedConditions.presenceOfElementLocated(by));
+			WebElement element = (new WebDriverWait(driver, Duration.ofMillis(20))).until(ExpectedConditions.presenceOfElementLocated(by));
 
 			return new Select(element);
 		} catch (Exception e) {
@@ -274,7 +280,6 @@ public class Utils {
 	 * Scroll to top
 	 * 
 	 * @param driver current Selenium driver
-	 * @param by     element to see
 	 */
 	public static void scrollTop(WebDriver driver) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
