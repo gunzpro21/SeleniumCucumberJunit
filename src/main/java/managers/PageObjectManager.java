@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import pageobjects.CommonPage;
 import pageobjects.DegreeFinderResultPage;
 import pageobjects.HomePage;
-import pageobjects.LandingPage;
+import pageobjects.DegreeFinderPage;
 
 
 /**
@@ -20,7 +20,7 @@ public class PageObjectManager {
 	private WebDriver driver;
 	private HomePage homePage;
 	private CommonPage commonPage;
-	private LandingPage landingPage;
+	private DegreeFinderPage landingPage;
 	private DegreeFinderResultPage degreeFinderResultPage;
 
 	public PageObjectManager(WebDriver driver) {
@@ -35,8 +35,8 @@ public class PageObjectManager {
 		return (commonPage == null) ? commonPage = new CommonPage(driver) : commonPage;
 	}
 
-	public LandingPage getLandingPage() {
-		return (landingPage == null) ? landingPage = new LandingPage(driver) : landingPage;
+	public DegreeFinderPage getLandingPage() {
+		return (landingPage == null) ? landingPage = new DegreeFinderPage(driver) : landingPage;
 	}
 
 	public DegreeFinderResultPage getDegreeFinderResultPage() {

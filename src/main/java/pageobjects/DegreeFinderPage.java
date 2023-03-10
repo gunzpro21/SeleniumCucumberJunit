@@ -16,9 +16,9 @@ import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 * @author  Phan
 * @since   2018 Oct 30th
 */
-public class LandingPage extends BasePage {
+public class DegreeFinderPage extends BasePage {
 	
-	public LandingPage(WebDriver driver) {
+	public DegreeFinderPage(WebDriver driver) {
 		super(driver);
 		PageFactory.initElements(new AjaxElementLocatorFactory(driver, pageTimeOut), this);
 	}

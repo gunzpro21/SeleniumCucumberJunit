@@ -18,20 +18,22 @@ public class DegreeFinderResultSteps {
 
 	Supervisor supervisor;
 	DegreeFinderResultPage degreeFinderResultPage;
-
+	DegreeFinderSteps degreeFinderSteps;
 	public DegreeFinderResultSteps(Supervisor sSupervisor) {
 		supervisor = sSupervisor;
 		degreeFinderResultPage = supervisor.getPageObjectManager().getDegreeFinderResultPage();
+		degreeFinderSteps = new DegreeFinderSteps(sSupervisor);
 	}
 
-	@Then("^Degree Finder belong to \"([^\"]*)\" displays$")
-	public void the_First_landing_page_is_loaded(String expectingUniversity) throws Throwable {
+	@Then("^degrees belong to \"([^\"]*)\" displays$")
+	public void degrees_belong_to_displays(String expectingUniversity) throws Throwable {
 		Assert.assertEquals(expectingUniversity, degreeFinderResultPage.getTextfirstResultFilter());
 	}
-
-	@When("^User search data degree$")
-	public void user_search_data_degree() throws Throwable {
-		degreeFinderResultPage.sendKeystxtSearch("data" +Keys.ENTER);
+	
+	@When("^User searches \"([^\"]*)\" degrees of Arizona State University$")
+	public void user_searches_degrees_of_Arizona_State_University(String seachingDegree) throws Throwable {
+		degreeFinderSteps.user_wants_to_searches_some_degrees_of_Arizona_State_University();
+		degreeFinderResultPage.sendKeystxtSearch(seachingDegree +Keys.ENTER);
 	}
 	
 	@Then("^the following related results are shown$")
