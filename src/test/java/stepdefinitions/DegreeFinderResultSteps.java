@@ -8,6 +8,8 @@ import java.util.Map;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 
+import com.vimalselvam.cucumber.listener.Reporter;
+
 import contextControls.Supervisor;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -27,6 +29,7 @@ public class DegreeFinderResultSteps {
 
 	@Then("^degrees belong to \"([^\"]*)\" displays$")
 	public void degrees_belong_to_displays(String expectingUniversity) throws Throwable {
+		Reporter.assignAuthor("Author - Truong Phan");
 		Assert.assertEquals(expectingUniversity, degreeFinderResultPage.getTextfirstResultFilter());
 	}
 	

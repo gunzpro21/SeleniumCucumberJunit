@@ -2,6 +2,8 @@ package stepdefinitions;
 
 import org.junit.Assert;
 
+import com.vimalselvam.cucumber.listener.Reporter;
+
 import contextControls.Supervisor;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -25,6 +27,7 @@ public class DegreeFinderSteps {
 	
 	@Then("^Degree Finder Page displays$")
 	public void the_First_landing_page_is_loaded() throws Throwable {
+		Reporter.assignAuthor("Author - Joe Phan");
 		Assert.assertEquals("Degree Finder", dFPage.getTextheaderPage());
 	}
 	@When("^User wants to searches some degrees of Arizona State University$")
