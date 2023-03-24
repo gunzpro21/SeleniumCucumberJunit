@@ -1,1 +1,1 @@
-# GUICheckingWeb
+# Selenium Complete Example
