@@ -6,7 +6,7 @@ The framework has following features
 2.	Maven based framework
 3.	Log4j2 enabled for logging
 4.	Report Generation (Extent-reporting)
-5.	Helper class to handle web component such as (Button,Link etc)
+5.	Helper class to handle web component such as (Button, Wait,... etc)
 6.	Using gherkin to develop feature files
 7.	Centralized Configuration (Using Properties file)
 8.	POM
