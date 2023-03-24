@@ -9,8 +9,8 @@ import pageobjects.DegreeFinderPage;
 
 
 /**
- * <h1>Add a driver!</h1> The PageObjectManager control all page objects in the
- * project. We create one class but control all pages.
+ * <h1>Add a driver!</h1> is to create the page's object and also to make sure that the same object should not be created again and again. 
+ * But to use a single object for all the step definition files.
  * 
  * @author Phan
  * @since 2018 Oct 25th

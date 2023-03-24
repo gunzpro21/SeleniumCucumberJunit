@@ -56,8 +56,9 @@ public class Hooks {
 			logger.error("System can not add screenshot!!" + e.getMessage());
 		}
 		// }
+		supervisor.getWebDriverManager().closeDriver();
 		logger.info("# End test: " + scenario.getName());
 		logger.info("$$$$$$$$$$$$$$$$$$$$$           A Scenario Ended       		  $$$$$$$$$$$$$$$$$$$$$$$$$");
-		supervisor.getWebDriverManager().closeDriver();
+		
 	}
 }

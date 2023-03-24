@@ -2,6 +2,8 @@ package pageobjects;
 
 import java.time.Duration;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -14,6 +16,8 @@ public class BasePage {
 	protected WebDriver driver;
 	Duration timeOutElement = Duration.ofSeconds(FileReaderManager.getInstance().getConfigReader().getExplicitlyWait());
 	int pageTimeOut = FileReaderManager.getInstance().getConfigReader().getImplicitlyWait();
+	private static final Logger logger = LogManager.getLogger(BasePage.class);
+
 	public BasePage(WebDriver driver) {
 		this.driver = driver;
 	}
@@ -27,8 +31,7 @@ public class BasePage {
 	 * @param WebElement       element to wait
 	 * @param timeOutInSeconds Time to wait for element to be visibility
 	 */
-	public WebElement WaitsElementToBeVisible(WebDriver driver, WebElement element,
-			Duration timeOutInSeconds) {
+	public WebElement WaitsElementToBeVisible(WebDriver driver, WebElement element, Duration timeOutInSeconds) {
 		WebDriverWait wait = new WebDriverWait(driver, timeOutInSeconds);
 		WebElement webElement = wait.until(ExpectedConditions.visibilityOf(element));
 		return webElement;
@@ -41,8 +44,7 @@ public class BasePage {
 	 * @param WebElement       element to wait
 	 * @param timeOutInSeconds Time to wait for element to be visibility
 	 */
-	public Boolean WaitsElementToBeInvisibility(WebDriver driver, WebElement element,
-			Duration timeOutInSeconds) {
+	public Boolean WaitsElementToBeInvisibility(WebDriver driver, WebElement element, Duration timeOutInSeconds) {
 		WebDriverWait wait = new WebDriverWait(driver, timeOutInSeconds);
 		Boolean condition = wait.until(ExpectedConditions.invisibilityOf(element));
 		return condition;
@@ -69,8 +71,7 @@ public class BasePage {
 	 * @param WebElement       element to wait
 	 * @param timeOutInSeconds Time to wait for element to be Clickable
 	 */
-	public WebElement WaitsElementToBeClickable(WebDriver driver, WebElement element,
-			Duration timeOutInSeconds) {
+	public WebElement WaitsElementToBeClickable(WebDriver driver, WebElement element, Duration timeOutInSeconds) {
 		WebDriverWait wait = new WebDriverWait(driver, timeOutInSeconds);
 		WebElement WaitedElement = wait.until(ExpectedConditions.elementToBeClickable(element));
 		return WaitedElement;
@@ -84,10 +85,16 @@ public class BasePage {
 	 * @param timeOutInSeconds Time to wait for element to be Clickable
 	 */
 	protected void clickClickableElement(WebDriver driver, WebElement element) {
-		WebElement ele = WaitsElementToBeClickable(driver, element, timeOutElement);
-		ele.click();
-	}
+		try {
+			WebElement ele = WaitsElementToBeClickable(driver, element, timeOutElement);
+			ele.click();
 	
+		} catch (Exception e) {
+			logger.error("can not click element " + element.toString() + " with message: " + e.getMessage());
+		}
+
+	}
+
 	/**
 	 * Move mouse to an element and click
 	 * 
@@ -97,8 +104,14 @@ public class BasePage {
 	 */
 
 	public static void hoverAndClick(WebDriver driver, WebElement elementToHover, WebElement elementToClick) {
-		Actions action = new Actions(driver);
-		action.moveToElement(elementToHover).click(elementToClick).build().perform();
+		try {
+			Actions action = new Actions(driver);
+			action.moveToElement(elementToHover).click(elementToClick).build().perform();
+		} catch (Exception e) {
+			logger.error("can not hover element: " + elementToClick.toString()+ " and click: "
+					+ elementToHover.toString() + " with message: " + e.getMessage());
+		}
+
 	}
 
 	/**
@@ -108,7 +121,11 @@ public class BasePage {
 	 * @param WebElement element to see
 	 */
 	protected void sendKeysVisibilityElement(WebDriver driver, WebElement element, CharSequence... keysToSend) {
-		WaitsElementToBeVisible(driver, element, timeOutElement).sendKeys(keysToSend);
+		try {
+			WaitsElementToBeVisible(driver, element, timeOutElement).sendKeys(keysToSend);
+		} catch (Exception e) {
+			logger.error("can not send key element-" + element.toString() + " with message: " + e.getMessage());
+		}
 	}
 
 	/**
@@ -118,6 +135,12 @@ public class BasePage {
 	 * @param by     element to see
 	 */
 	protected String getTextVisibleElement(WebDriver driver, WebElement element) {
-		return WaitsElementToBeVisible(driver, element, timeOutElement).getText();
+		
+		try {
+			return WaitsElementToBeVisible(driver, element, timeOutElement).getText();
+		} catch (Exception e) {
+			logger.error("can not get Text element -" + element.toString() + " with message: " + e.getMessage());
+		}
+		return null;
 	}
 }

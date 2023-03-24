@@ -1,7 +1,8 @@
 package managers;
 
-import java.util.concurrent.TimeUnit;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -24,17 +25,20 @@ public class WebDriverManager {
 	private WebDriver driver;
 	private static E_Browser driverType;
 	private static E_EnvironmentType environmentType;
-	// "webdriver.chrome.driver";
-
+	private static final Logger logger = LogManager.getLogger(WebDriverManager.class);
 	public WebDriverManager() {
 		driverType = FileReaderManager.getInstance().getConfigReader().getBrowser();
 		environmentType = FileReaderManager.getInstance().getConfigReader().getEnvironment();
 	}
 
 	public WebDriver getDriver() {
-		if (driver == null)
-			driver = createDriver();
-		driver.manage().window().maximize();
+		try {
+			if (driver == null)
+				driver = createDriver();
+		} catch (Exception e) {
+			logger.fatal("Can not get driver : " + e.getMessage());
+		}
+
 		return driver;
 	}
 
@@ -51,7 +55,6 @@ public class WebDriverManager {
 	}
 
 	private WebDriver createRemoteDriver() {
-		//
 		throw new RuntimeException("RemoteWebDriver is not yet implemented");
 	}
 
@@ -61,7 +64,6 @@ public class WebDriverManager {
 			driver = new FirefoxDriver();
 			break;
 		case CHROME:
-
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--remote-allow-origins=*");
 			driver = new ChromeDriver(options);
@@ -70,9 +72,7 @@ public class WebDriverManager {
 			driver = new InternetExplorerDriver();
 			break;
 		}
-
-		driver.manage().timeouts().implicitlyWait(FileReaderManager.getInstance().getConfigReader().getImplicitlyWait(),
-				TimeUnit.SECONDS);// check 2 times or not
+		driver.manage().window().maximize();
 		return driver;
 	}
 
