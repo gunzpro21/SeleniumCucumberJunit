@@ -20,3 +20,4 @@ The framework has following features
 > What is BDD? You are trying to automate test cases with a supporting tool to write some tests with human natural language, BDD does not look like that. You should [Learn about BDD, VisualTest and Approval Testing](https://cucumber.io/blog/bdd/bdd-approval-testing-and-visualtest/), it will help you what is BDD and how to use it correctly. Andy Knight has written a [Better behavior-driven development: 4 rules for writing good Gherkin](https://techbeacon.com/app-dev-testing/better-behavior-driven-development-4-rules-writing-good-gherkin).
 ## Required software
 ## How to execute the tests
+mvn -Dtest=RunnerTest test
