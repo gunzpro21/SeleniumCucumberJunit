@@ -17,7 +17,7 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
 /**
- * <h1>run a testcase!</h1> The NavigatingLandingPageByWeb_Runner run a feature.
+ * <h1>run a test case!</h1>
  * 
  * @author Truong Phan
  * @since 2023 Mar 07th
@@ -34,7 +34,7 @@ import cucumber.api.junit.Cucumber;
 		dryRun = false // to check the mapping is proper between feature file and step definition file
 // tags = {"~@SmokeTest" }
 )
-public class Runner {
+public class RunnerTest {
 	private static final Logger logger = LogManager.getLogger(NewTest.class);
 
 	@BeforeClass

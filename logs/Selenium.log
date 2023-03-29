@@ -1,24 +1,16 @@
-2023-03-24 15:21:00,880 INFO r.NewTest [main] *********************************************************************************************
-2023-03-24 15:21:00,882 INFO r.NewTest [main] $$$$$$$$$$$$$$$$$$$$$           The Test Stated       		  $$$$$$$$$$$$$$$$$$$$$$$$$
-2023-03-24 15:21:04,358 INFO r.NewTest [main] $$$$$$$$$$$$$$$$$$$$$           A Scenario Stated       		  $$$$$$$$$$$$$$$$$$$$$$$$$
-2023-03-24 15:21:04,359 INFO r.NewTest [main] # Start test: navigating Degree Finder Page
-2023-03-24 15:21:11,908 INFO r.NewTest [main] # End test: navigating Degree Finder Page
-2023-03-24 15:21:11,908 INFO r.NewTest [main] $$$$$$$$$$$$$$$$$$$$$           A Scenario Ended       		  $$$$$$$$$$$$$$$$$$$$$$$$$
-2023-03-24 15:21:11,913 INFO r.NewTest [main] $$$$$$$$$$$$$$$$$$$$$           The Test Ended       		  $$$$$$$$$$$$$$$$$$$$$$$$$
-2023-03-24 15:21:11,914 INFO r.NewTest [main] *********************************************************************************************
-2023-03-24 15:21:38,810 INFO r.NewTest [main] *********************************************************************************************
-2023-03-24 15:21:38,814 INFO r.NewTest [main] $$$$$$$$$$$$$$$$$$$$$           The Test Stated       		  $$$$$$$$$$$$$$$$$$$$$$$$$
-2023-03-24 15:21:41,125 INFO r.NewTest [main] $$$$$$$$$$$$$$$$$$$$$           A Scenario Stated       		  $$$$$$$$$$$$$$$$$$$$$$$$$
-2023-03-24 15:21:41,126 INFO r.NewTest [main] # Start test: navigating Degree Finder Page
-2023-03-24 15:21:48,744 INFO r.NewTest [main] # End test: navigating Degree Finder Page
-2023-03-24 15:21:48,744 INFO r.NewTest [main] $$$$$$$$$$$$$$$$$$$$$           A Scenario Ended       		  $$$$$$$$$$$$$$$$$$$$$$$$$
-2023-03-24 15:21:49,586 INFO r.NewTest [main] $$$$$$$$$$$$$$$$$$$$$           A Scenario Stated       		  $$$$$$$$$$$$$$$$$$$$$$$$$
-2023-03-24 15:21:49,586 INFO r.NewTest [main] # Start test: view an University in Degree Finder Page
-2023-03-24 15:21:57,335 INFO r.NewTest [main] # End test: view an University in Degree Finder Page
-2023-03-24 15:21:57,335 INFO r.NewTest [main] $$$$$$$$$$$$$$$$$$$$$           A Scenario Ended       		  $$$$$$$$$$$$$$$$$$$$$$$$$
-2023-03-24 15:21:58,151 INFO r.NewTest [main] $$$$$$$$$$$$$$$$$$$$$           A Scenario Stated       		  $$$$$$$$$$$$$$$$$$$$$$$$$
-2023-03-24 15:21:58,151 INFO r.NewTest [main] # Start test: search data degree of an University in Degree Finder Page
-2023-03-24 15:22:07,122 INFO r.NewTest [main] # End test: search data degree of an University in Degree Finder Page
-2023-03-24 15:22:07,122 INFO r.NewTest [main] $$$$$$$$$$$$$$$$$$$$$           A Scenario Ended       		  $$$$$$$$$$$$$$$$$$$$$$$$$
-2023-03-24 15:22:07,126 INFO r.NewTest [main] $$$$$$$$$$$$$$$$$$$$$           The Test Ended       		  $$$$$$$$$$$$$$$$$$$$$$$$$
-2023-03-24 15:22:07,127 INFO r.NewTest [main] *********************************************************************************************
+2023-03-27 17:46:19,253 INFO r.NewTest [main] *********************************************************************************************
+2023-03-27 17:46:19,268 INFO r.NewTest [main] $$$$$$$$$$$$$$$$$$$$$           The Test Stated       		  $$$$$$$$$$$$$$$$$$$$$$$$$
+2023-03-27 17:46:22,884 INFO r.NewTest [main] $$$$$$$$$$$$$$$$$$$$$           A Scenario Stated       		  $$$$$$$$$$$$$$$$$$$$$$$$$
+2023-03-27 17:46:22,884 INFO r.NewTest [main] # Start test: navigating Degree Finder Page
+2023-03-27 17:46:31,227 INFO r.NewTest [main] # End test: navigating Degree Finder Page
+2023-03-27 17:46:31,227 INFO r.NewTest [main] $$$$$$$$$$$$$$$$$$$$$           A Scenario Ended       		  $$$$$$$$$$$$$$$$$$$$$$$$$
+2023-03-27 17:46:32,055 INFO r.NewTest [main] $$$$$$$$$$$$$$$$$$$$$           A Scenario Stated       		  $$$$$$$$$$$$$$$$$$$$$$$$$
+2023-03-27 17:46:32,075 INFO r.NewTest [main] # Start test: view an University in Degree Finder Page
+2023-03-27 17:46:40,425 INFO r.NewTest [main] # End test: view an University in Degree Finder Page
+2023-03-27 17:46:40,425 INFO r.NewTest [main] $$$$$$$$$$$$$$$$$$$$$           A Scenario Ended       		  $$$$$$$$$$$$$$$$$$$$$$$$$
+2023-03-27 17:46:41,232 INFO r.NewTest [main] $$$$$$$$$$$$$$$$$$$$$           A Scenario Stated       		  $$$$$$$$$$$$$$$$$$$$$$$$$
+2023-03-27 17:46:41,233 INFO r.NewTest [main] # Start test: search data degree of an University in Degree Finder Page
+2023-03-27 17:46:49,951 INFO r.NewTest [main] # End test: search data degree of an University in Degree Finder Page
+2023-03-27 17:46:49,951 INFO r.NewTest [main] $$$$$$$$$$$$$$$$$$$$$           A Scenario Ended       		  $$$$$$$$$$$$$$$$$$$$$$$$$
+2023-03-27 17:46:49,969 INFO r.NewTest [main] $$$$$$$$$$$$$$$$$$$$$           The Test Ended       		  $$$$$$$$$$$$$$$$$$$$$$$$$
+2023-03-27 17:46:49,969 INFO r.NewTest [main] *********************************************************************************************
