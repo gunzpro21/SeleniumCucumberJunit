@@ -1,7 +1,7 @@
 # Don't hesitate to give me a ⭐ to make the project more popular.
 # Selenium Complete Example
 - This framework for automation in checking Website using Selenium, Cucumber and Junit 4. [You can reach me](https://github.com/gunzpro21/gunzpro21). 
-- The framework has following features
+- The framework has following features:
 1.	Modular Design
 2.	Maven based framework
 3.	Log4j2 enabled for logging
