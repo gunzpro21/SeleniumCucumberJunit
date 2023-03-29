@@ -23,4 +23,14 @@ The framework has following features
 * [Maven Installed](https://mkyong.com/maven/how-to-install-maven-in-windows/)
 * [Enable LOMBOK plugin on your IDE](https://www.baeldung.com/lombok-ide)
 ## How to execute the tests
+### Runner:
+- You can open the RunnerTest on src\test\java\runners and change the feature you want to execute, but I recommend you run it by the command line. It enables us to run in different test execution strategies and, also in a pipeline, that is the repo purpose.
+### Command line:
 mvn -Dtest=RunnerTest test
+## Cucumber Report
+Over view:
+![image](https://user-images.githubusercontent.com/27693044/228492135-c6147027-d5e4-402d-99f6-1babed362458.png)
+Detail page:
+![image](https://user-images.githubusercontent.com/27693044/228492358-a0b82ec6-9d95-41db-8e84-a1ac15a95c8f.png)
+Screeshot of a scenario:
+![image](https://user-images.githubusercontent.com/27693044/228492539-63ac26b5-e9db-49c6-a084-d18f3be43d81.png)
