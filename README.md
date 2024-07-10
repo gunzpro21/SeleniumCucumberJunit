@@ -1,3 +1,4 @@
+# This project is gone, and I'm too exhausted to configure the outdated versions of Chrome, Selenium, and Cucumber. This project has far too many problems. It was the final time I could run it with the project attached. I use playwright now; sorry, dumb selenium.
 # Don't hesitate to give me a ⭐ to make the project more popular.
 # Selenium Complete Example
 - This framework for automation in checking Website using Selenium, Cucumber and Junit 4. [You can reach me](https://github.com/gunzpro21/gunzpro21). 
